@@ -1,6 +1,8 @@
 FROM ubuntu:20.04
 RUN apt update
 RUN apt install git -y
+ENV TZ=Europe/Moscow
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt install default-jdk -y
 RUN apt install maven -y
 RUN apt install tomcat9 -y
