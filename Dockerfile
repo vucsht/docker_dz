@@ -24,7 +24,7 @@ ENV CATALINA_HOME=/opt/tomcat
 ENV JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
 ENV CATALINA_PID=/opt/tomcat/temp/tomcat.pid
 ENV CATALINA_BASE=/opt/tomcat
-ENV CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC
+ENV CATALINA_OPTS='-Xms512M -Xmx1024M -server -XX:+UseParallelGC'
 EXPOSE 8080
 
 RUN cp target/hello-1.0.war /var/lib/tomcat9/webapps/
