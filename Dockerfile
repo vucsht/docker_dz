@@ -11,4 +11,7 @@ RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
 WORKDIR boxfuse-sample-java-war-hello/
 RUN mvn package
 RUN cp target/hello-1.0.war /var/lib/tomcat9/webapps/
-CMD ["/bin/bash"]
+WORKDIR /usl/local/tomcat
+ENV CATALINA_HOME=/usr/local/tomcat
+ENV PATH=/usr/local/tomcat/bin:/usr/local/openjdk-11/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+CMD ["catalina.sh", "run"]
