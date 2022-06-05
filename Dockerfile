@@ -12,7 +12,8 @@ RUN mvn package
 # Установка Tomcat
 RUN groupadd tomcat
 RUN useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
-RUN wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.63/bin/apache-tomcat-9.0.63.tar.gz
+#RUN wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.63/bin/apache-tomcat-9.0.63.tar.gz
+RUN curl -O https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.63/bin/apache-tomcat-9.0.63.tar.gz
 RUN mkdir /opt/tomcat
 RUN tar xzvf apache-tomcat-*tar.gz -C /opt/tomcat --strip-components=1
 WORKDIR /opt/tomcat
