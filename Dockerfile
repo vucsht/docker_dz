@@ -11,10 +11,10 @@ RUN mvn package
 
 # Установка Tomcat
 RUN groupadd tomcat
-RUN sudo useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
+RUN useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
 RUN wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.63/bin/apache-tomcat-9.0.63.tar.gz
 RUN mkdir /opt/tomcat
-RUN sudo tar xzvf apache-tomcat-*tar.gz -C /opt/tomcat --strip-components=1
+RUN tar xzvf apache-tomcat-*tar.gz -C /opt/tomcat --strip-components=1
 WORKDIR /opt/tomcat
 RUN chgrp -R tomcat /opt/tomcat
 RUN chmod -R g+r conf
@@ -27,5 +27,5 @@ ENV CATALINA_BASE=/opt/tomcat
 ENV CATALINA_OPTS='-Xms512M -Xmx1024M -server -XX:+UseParallelGC'
 EXPOSE 8080
 
-RUN cp target/hello-1.0.war /var/lib/tomcat9/webapps/
+RUN cp target/hello-1.0.war /opt/tomcat/webapps/
 CMD ["/opt/tomcat/bin/catalina.sh", "run"]
