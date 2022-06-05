@@ -29,5 +29,5 @@ ENV CATALINA_BASE=/opt/tomcat
 ENV CATALINA_OPTS='-Xms512M -Xmx1024M -server -XX:+UseParallelGC'
 EXPOSE 8080
 
-RUN cp target/hello-1.0.war /opt/tomcat/webapps/
+RUN cp /boxfuse-sample-java-war-hello/target/hello-1.0.war /opt/tomcat/webapps/
 CMD ["/opt/tomcat/bin/catalina.sh", "run"]
