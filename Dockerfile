@@ -12,6 +12,6 @@ WORKDIR boxfuse-sample-java-war-hello/
 RUN mvn package
 RUN cp target/hello-1.0.war /var/lib/tomcat9/webapps/
 WORKDIR /usr/local/tomcat
-ENV CATALINA_HOME=/usr/local/tomcat
+ENV CATALINA_HOME=/usr/share/tomcat9
 ENV PATH=/usr/local/tomcat/bin:/usr/local/openjdk-11/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-CMD ["catalina.sh", "run"]
+CMD ["$CATALINA_HOME/bin/catalina.sh", "run"]
