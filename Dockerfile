@@ -14,4 +14,4 @@ RUN cp target/hello-1.0.war /var/lib/tomcat9/webapps/
 WORKDIR /usl/local/tomcat
 ENV CATALINA_HOME=/usr/local/tomcat
 ENV PATH=/usr/local/tomcat/bin:/usr/local/openjdk-11/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-CMD ["catalina.sh", "run"]
+CMD ["/bin/bash"]
